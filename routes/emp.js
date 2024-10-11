@@ -12,19 +12,19 @@ router.post('/employees', (req, res) => {
     
 });
 
-app.get('/employees/:eid/', (req, res) => {
+router.get('/employees/:eid/', (req, res) => {
     
     let eid = req.params.eid;
 
 })
 
-app.put('/employees/:eid/', (req, res) => {
+router.put('/employees/:eid/', (req, res) => {
     
     let eid = req.params.eid;
 
 })
 
-app.delete('/employees/', (req, res) => {
+router.delete('/employees/', (req, res) => {
     
     let eid = req.query.eid;
 
