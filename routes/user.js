@@ -27,7 +27,7 @@ router.post('/signup', async (req, res) => {
             let newUser = new UserModel(userBody);
             if (await newUser.save()){
                 console.log({message: "User created successfully", userID: newUser._id});
-                res.status(200).send({message: "User created successfully", userID: newUser._id})
+                res.status(201).send({message: "User created successfully", userID: newUser._id})
             }
         }
     }catch(err) {
