@@ -5,7 +5,6 @@ const express = require('express');
 const UserModel = require('../models/userSchema');
 const router = express.Router();
 const mongoose = require('mongoose');
-const DB_CONNECTION_STRING=""
 mongoose.connect("mongodb+srv://jorrel6130:u7IoFfOZEgKGRK9h@comp3123assignment1.ckvpn.mongodb.net/?retryWrites=true&w=majority&appName=Comp3123Assignment1");
 
 router.post('/signup', async (req, res) => {
@@ -31,28 +30,27 @@ router.post('/signup', async (req, res) => {
             }
         }
     }catch(err) {
-        console.log(err);
-        res.status(400).send(`${err}`);
+        console.log({err});
+        res.status(400).send({error: err.message});
     }
 });
 
 router.post('/login', async (req, res) => {
-    console.log(req.body);
     try {
         let findEmail = await UserModel.find({email: req.body.email});
         let findPassword = await UserModel.find({email: req.body.email, password: req.body.password});
-        console.log(findPassword);
+        let username = findPassword.map((user) => {return user.username});
         if (findEmail.length === 0) {
             throw Error("Email does not exist.");
         } else if (findPassword.length === 0) {
             throw Error("Invalid password.");
         } else {
-            console.log({message: "Login successful."})
-            res.status(200).send({message: "Login Successful"})
+            console.log({message: `Login successful. Welcome, ${username}.`})
+            res.status(200).send({message: `Login successful. Welcome, ${username}.`});
         }
     }catch(err) {
-        console.log(err);
-        res.status(400).send(`${err}`);
+        console.log({err});
+        res.status(400).send({error: err.message});
     }
 });
 
