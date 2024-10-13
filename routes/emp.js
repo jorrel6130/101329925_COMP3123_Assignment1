@@ -2,7 +2,10 @@
 // 101329925
 
 const express = require('express');
+const EmpModel = require('../models/empSchema');
 const router = express.Router();
+const mongoose = require('mongoose');
+mongoose.connect("mongodb+srv://jorrel6130:u7IoFfOZEgKGRK9h@comp3123assignment1.ckvpn.mongodb.net/?retryWrites=true&w=majority&appName=Comp3123Assignment1");
 
 router.get('/employees', (req, res) => {
     
