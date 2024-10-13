@@ -9,7 +9,7 @@ mongoose.connect("mongodb+srv://jorrel6130:u7IoFfOZEgKGRK9h@comp3123assignment1.
 
 router.get('/employees', async (req, res) => {
     let allEmps = await EmpModel.find({});
-    res.send(allEmps);
+    res.status(200).send(allEmps);
 });
 
 router.post('/employees', async (req, res) => {
@@ -19,7 +19,7 @@ router.post('/employees', async (req, res) => {
             throw Error("Employee already recorded, please update instead.");
         } else {
             let empBody = {
-                _id: new mongoose.Types.ObjectId,
+                _id: req.body._id || new mongoose.Types.ObjectId,
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 email: req.body.email,
@@ -32,7 +32,7 @@ router.post('/employees', async (req, res) => {
             let newEmp = new EmpModel(empBody);
             if (await newEmp.save()){
                 console.log({message: "Employee recorded successfully", employee_id: newEmp._id});
-                res.status(200).send({message: "Employee recorded successfully", emploeyee_id: newEmp._id})
+                res.status(201).send({message: "Employee recorded successfully", emploeyee_id: newEmp._id})
             }
         }
     }catch(err) {
@@ -48,7 +48,7 @@ router.get('/employees/:eid/', async (req, res) => {
 
     try {
         if (findEmp = await EmpModel.findById(eid)) {
-            res.send(findEmp);
+            res.status(200).send(findEmp);
         } else {
             throw Error("Employee is not recorded.")
         }
@@ -68,7 +68,7 @@ router.put('/employees/:eid/', async (req, res) => {
     try {
         if (updateEmp = await EmpModel.findOneAndUpdate(eid, update)){
             updateEmp = await EmpModel.findOneAndUpdate(eid, {updated_at: new Date});
-            res.send({message: "Employee details updated successfully"});
+            res.status(200).send({message: "Employee details updated successfully"});
         } else {
             throw Error("Employee is not recorded or cannot be updated.");
         }
@@ -87,7 +87,7 @@ router.delete('/employees', async (req, res) => {
     try {
         if (deleteEmp = await EmpModel.findOneAndDelete(eid)){
             
-            res.send({message: "Employee record successfully deleted."})
+            res.status(202).send({message: "Employee record successfully deleted."})
         } else {
             throw Error("Employee is not recorded.");
         }
