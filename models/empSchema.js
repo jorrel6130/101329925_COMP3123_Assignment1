@@ -4,7 +4,7 @@
 const mongoose = require('mongoose');
 
 const EmpSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    _id: {type: mongoose.Schema.Types.ObjectId, default: new mongoose.Types.ObjectId},
     first_name: String,
     last_name: String,
     email: String,
@@ -12,8 +12,8 @@ const EmpSchema = new mongoose.Schema({
     salary: [Number],
     date_of_joining: [Date],
     department: String,
-    created_at: [Date],
-    updated_at: [Date]
+    created_at: {type: Date, default: Date.now},
+    updated_at: {type: Date, default: Date.now}
 });
 
 const Emp  = mongoose.model("emp", EmpSchema);

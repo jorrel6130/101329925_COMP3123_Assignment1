@@ -12,7 +12,6 @@ router.post('/signup', async (req, res) => {
     try {
         let findUser = await UserModel.find({username: req.body.username});
         let findEmail = await UserModel.find({email: req.body.email});
-        console.log(findEmail);
         if (findUser.length > 0) {
             throw Error("Username is already in use.");
         } else if (findEmail.length > 0) {
@@ -26,7 +25,6 @@ router.post('/signup', async (req, res) => {
             }
         
             let newUser = new UserModel(userBody);
-            console.log(newUser);
             if (await newUser.save()){
                 console.log({message: "User created successfully", userID: newUser._id});
                 res.status(200).send({message: "User created successfully", userID: newUser._id})
