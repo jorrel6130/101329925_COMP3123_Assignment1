@@ -9,31 +9,30 @@ mongoose.connect("mongodb+srv://jorrel6130:u7IoFfOZEgKGRK9h@comp3123assignment1.
 
 router.get('/employees', async (req, res) => {
     let allEmps = await EmpModel.find({});
-    console.log(allEmps);
     res.send(allEmps);
 });
 
 router.post('/employees', async (req, res) => {
     try {
         let findEmp = await EmpModel.find({first_name: req.body.first_name, last_name: req.body.last_name});
-        console.log(findEmail);
-        if (findUser.length > 0) {
-            throw Error("Username is already in use.");
-        } else if (findEmail.length > 0) {
-            throw Error("Email is already in use.");
+        if (findEmp.length > 0) {
+            throw Error("Employee already recorded, please update instead.");
         } else {
-            let userBody = {
+            let empBody = {
                 _id: new mongoose.Types.ObjectId,
-                username: req.body.username,
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
                 email: req.body.email,
-                password: req.body.password
+                position: req.body.position,
+                salary: req.body.salary,
+                date_of_joining: req.body.date_of_joining,
+                department: req.body.department,
             }
         
-            let newUser = new EmpModel(userBody);
-            console.log(newUser);
-            if (await newUser.save()){
-                console.log({message: "User created successfully", userID: newUser._id});
-                res.status(200).send({message: "User created successfully", userID: newUser._id})
+            let newEmp = new EmpModel(empBody);
+            if (await newEmp.save()){
+                console.log({message: "Employee recorded successfully", employee_id: newEmp._id});
+                res.status(200).send({message: "Employee recorded successfully", emploeyee_id: newEmp._id})
             }
         }
     }catch(err) {
