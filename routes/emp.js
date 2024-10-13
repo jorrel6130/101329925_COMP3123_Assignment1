@@ -41,21 +41,60 @@ router.post('/employees', async (req, res) => {
     }
 });
 
-router.get('/employees/:eid/', (req, res) => {
+router.get('/employees/:eid/', async (req, res) => {
     
-    let eid = req.params.eid;
+    let eid = {_id: req.params.eid};
+    let findEmp;
+
+    try {
+        if (findEmp = await EmpModel.findById(eid)) {
+            res.send(findEmp);
+        } else {
+            throw Error("Employee is not recorded.")
+        }
+    }catch(err) {
+        console.log(err);
+        res.status(400).send(`${err}`);
+    }
 
 })
 
-router.put('/employees/:eid/', (req, res) => {
+router.put('/employees/:eid/', async (req, res) => {
     
-    let eid = req.params.eid;
+    let eid = {_id: req.params.eid};
+    let update = req.body;
+    let updateEmp;
+
+    try {
+        if (updateEmp = await EmpModel.findOneAndUpdate(eid, update)){
+            updateEmp = await EmpModel.findOneAndUpdate(eid, {updated_at: new Date});
+            res.send({message: "Employee details updated successfully"});
+        } else {
+            throw Error("Employee is not recorded or cannot be updated.");
+        }
+    }catch(err) {
+        console.log(err);
+        res.status(400).send(`${err}`);
+    }
 
 })
 
-router.delete('/employees/', (req, res) => {
+router.delete('/employees', async (req, res) => {
     
-    let eid = req.query.eid;
+    let eid = {_id: req.query.eid};
+    let deleteEmp;
+
+    try {
+        if (deleteEmp = await EmpModel.findOneAndDelete(eid)){
+            
+            res.send({message: "Employee record successfully deleted."})
+        } else {
+            throw Error("Employee is not recorded.");
+        }
+    }catch(err) {
+        console.log(err);
+        res.status(400).send(`${err}`);
+    }
 
 })
 
