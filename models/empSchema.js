@@ -5,12 +5,12 @@ const mongoose = require('mongoose');
 
 const EmpSchema = new mongoose.Schema({
     _id: {type: mongoose.Schema.Types.ObjectId, default: new mongoose.Types.ObjectId},
-    first_name: String,
-    last_name: String,
-    email: String,
+    first_name: {type: String, required: true, trim: true},
+    last_name: {type: String, required: true, trim: true},
+    email: {type: String, required: true, trim: true, lowercase: true},
     position: String,
     salary: [Number],
-    date_of_joining: [Date],
+    date_of_joining: {type: Date, required: true},
     department: String,
     created_at: {type: Date, default: Date.now},
     updated_at: {type: Date, default: Date.now}

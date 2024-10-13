@@ -36,7 +36,7 @@ router.post('/employees', async (req, res) => {
             }
         }
     }catch(err) {
-        console.log({err});
+        console.log({error: err.message});
         res.status(400).send({error: err.message});
     }
 });
@@ -53,7 +53,7 @@ router.get('/employees/:eid/', async (req, res) => {
             throw Error("Employee is not recorded.")
         }
     }catch(err) {
-        console.log({err});
+        console.log({error: err.message});
         res.status(400).send({error: err.message});
     }
 
@@ -73,7 +73,7 @@ router.put('/employees/:eid/', async (req, res) => {
             throw Error("Employee is not recorded or cannot be updated.");
         }
     }catch(err) {
-        console.log({err});
+        console.log({error: err.message});
         res.status(400).send({error: err.message});
     }
 
@@ -92,7 +92,7 @@ router.delete('/employees', async (req, res) => {
             throw Error("Employee is not recorded.");
         }
     }catch(err) {
-        console.log({err});
+        console.log({error: err.message});
         res.status(400).send({error: err.message});
     }
 

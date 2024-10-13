@@ -30,7 +30,7 @@ router.post('/signup', async (req, res) => {
             }
         }
     }catch(err) {
-        console.log({err});
+        console.log({error: err.message});
         res.status(400).send({error: err.message});
     }
 });
@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
             res.status(200).send({message: `Login successful. Welcome, ${username}.`});
         }
     }catch(err) {
-        console.log({err});
+        console.log({error: err.message});
         res.status(400).send({error: err.message});
     }
 });
