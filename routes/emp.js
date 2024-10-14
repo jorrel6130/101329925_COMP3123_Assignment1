@@ -1,5 +1,6 @@
 // Jorrel Tigbayan
 // 101329925
+// URLs commented above routers
 
 const express = require('express');
 const EmpModel = require('../models/empSchema');
@@ -7,11 +8,13 @@ const router = express.Router();
 const mongoose = require('mongoose');
 mongoose.connect("mongodb+srv://jorrel6130:u7IoFfOZEgKGRK9h@comp3123assignment1.ckvpn.mongodb.net/?retryWrites=true&w=majority&appName=Comp3123Assignment1");
 
+// http://localhost:6130/api/v1/employees GET
 router.get('/employees', async (req, res) => {
     let allEmps = await EmpModel.find({});
     res.status(200).send(allEmps);
 });
 
+// http://localhost:6130/api/v1/employees POST
 router.post('/employees', async (req, res) => {
     try {
         let findEmp = await EmpModel.find({first_name: req.body.first_name, last_name: req.body.last_name});
@@ -41,6 +44,7 @@ router.post('/employees', async (req, res) => {
     }
 });
 
+// http://localhost:6130/api/v1/employees/_id GET
 router.get('/employees/:eid/', async (req, res) => {
     
     let eid = {_id: req.params.eid};
@@ -59,6 +63,7 @@ router.get('/employees/:eid/', async (req, res) => {
 
 })
 
+// http://localhost:6130/api/v1/employees/_id PUT
 router.put('/employees/:eid/', async (req, res) => {
     
     let eid = {_id: req.params.eid};
@@ -79,6 +84,7 @@ router.put('/employees/:eid/', async (req, res) => {
 
 })
 
+// http://localhost:6130/api/v1/employees DELETE
 router.delete('/employees', async (req, res) => {
     
     let eid = {_id: req.query.eid};
