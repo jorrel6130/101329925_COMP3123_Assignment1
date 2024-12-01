@@ -12,7 +12,7 @@ const EmpSchema = new mongoose.Schema({
     position: {type: String, trim: true, lowercase: true},
     salary: [Number],
     date_of_joining: {type: Date, required: true},
-    department: String,
+    department: {type: String, trim: true, lowercase: true},
     created_at: {type: Date, default: Date.now},
     updated_at: {type: Date, default: Date.now}
 });
