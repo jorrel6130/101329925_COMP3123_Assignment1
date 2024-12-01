@@ -47,13 +47,13 @@ router.post('/employees', async (req, res) => {
 // http://localhost:6130/api/v1/employees/:field/:search GET
 router.get('/employees/:field/:search', async (req, res) => {
     
-    let field = {_id: req.params.field};
-    let search = {_id: req.params.search};
+    let field = req.params.field;
+    let search = req.params.search;
     let findEmps;
 
     try {
         if (findEmps = await EmpModel.find({field: search})) {
-            res.status(200).send(`${JSON.stringify(findEmps)} ${search} ${field}`);
+            res.status(200).send(`all fields in ${field} found with value ${search}`);
         } else {
             throw Error("Employee is not recorded.")
         }
