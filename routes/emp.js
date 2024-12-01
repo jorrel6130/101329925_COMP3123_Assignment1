@@ -53,7 +53,7 @@ router.get('/employees/:field/:search', async (req, res) => {
 
     try {
         if (findEmps = await EmpModel.find({field: search})) {
-            res.status(200).send(findEmps);
+            res.status(200).send(`${JSON.stringify(findEmps)} ${search} ${field}`);
         } else {
             throw Error("Employee is not recorded.")
         }
