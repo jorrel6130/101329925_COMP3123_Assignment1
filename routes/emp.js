@@ -52,11 +52,10 @@ router.get('/employees/:field/:search', async (req, res) => {
     let findEmps;
 
     try {
-        if (findEmps = await EmpModel.find({}).
-        where(field).equals(search)) {
+        if (findEmps = await EmpModel.find({field: search})) {
             res.status(200).send(findEmp);
         } else {
-            throw Error("Employees not found.")
+            throw Error("Employee is not recorded.")
         }
     }catch(err) {
         console.log({error: err.message});
