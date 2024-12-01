@@ -5,6 +5,7 @@
   "main": "./api/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "vercel dev",
     "vercel-build": "echo hello"
   },
   "author": "Jorrel Tigbayan",

@@ -1,0 +1,190 @@
+{
+    "info": {
+        "_postman_id": "97719526-fe6b-41e6-ad0e-ba6e4ec7a5d6",
+        "name": "Users_101329925_COMP3123_Assignment1",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Sample User Login",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/user/login",
+                    "path": [
+                        "api",
+                        "v1",
+                        "user",
+                        "login"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n    \"email\": \"   samplE@gmail.com   \",\n    \"password\": \"password123\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Sign Up Jorrel",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/user/signup",
+                    "path": [
+                        "api",
+                        "v1",
+                        "user",
+                        "signup"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n    \"_id\": \"670c2f22bfa0640cc6caabc8\",\n    \"username\": \"Jorrel\",\n    \"email\": \"101329925@gmail.com\",\n    \"password\": \"password123\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Log In Jorrel",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/user/login",
+                    "path": [
+                        "api",
+                        "v1",
+                        "user",
+                        "login"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n    \"email\": \"101329925@gmail.com\",\n    \"password\": \"password123\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Sign Up Jack Same Email",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/user/signup",
+                    "path": [
+                        "api",
+                        "v1",
+                        "user",
+                        "signup"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n    \"username\": \"Jack\",\n    \"email\": \"101329925@gmail.com\",\n    \"password\": \"password123\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Log In Jorrel Wrong Email",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/user/login",
+                    "path": [
+                        "api",
+                        "v1",
+                        "user",
+                        "login"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n    \"email\": \"201329925@gmail.com\",\n    \"password\": \"password123\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Log In Jorrel Wrong Password",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/user/login",
+                    "path": [
+                        "api",
+                        "v1",
+                        "user",
+                        "login"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n    \"email\": \"101329925@gmail.com\",\n    \"password\": \"password1234\"\n}"
+                }
+            }
+        }
+    ]
+}

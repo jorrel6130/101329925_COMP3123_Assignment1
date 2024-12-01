@@ -1,0 +1,223 @@
+{
+    "info": {
+        "_postman_id": "24bbc3b8-87c9-46af-a10c-4700737991f9",
+        "name": "Employees_101329925_COMP3123_Assignment1",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "All Emps",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/emp/employees/",
+                    "path": [
+                        "api",
+                        "v1",
+                        "emp",
+                        "employees"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Add Jorrel",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/emp/employees/",
+                    "path": [
+                        "api",
+                        "v1",
+                        "emp",
+                        "employees"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n    \"_id\": \"670c2bc649a5b45e01e4413a\",\n    \"first_name\": \"Jorrel\",\n    \"last_name\": \"Tigbayan\",\n    \"email\": \"101329925@georgebrown.ca\",\n    \"position\": \"Student\",\n    \"salary\": 0,\n    \"date_of_joining\": \"2024-10-13T00:00:00.000Z\",\n    \"department\": \"COMP3123\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Request Jorrel",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/emp/employees/670c2bc649a5b45e01e4413a",
+                    "path": [
+                        "api",
+                        "v1",
+                        "emp",
+                        "employees",
+                        "670c2bc649a5b45e01e4413a"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update Jorrel",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/emp/employees/670c2bc649a5b45e01e4413a",
+                    "path": [
+                        "api",
+                        "v1",
+                        "emp",
+                        "employees",
+                        "670c2bc649a5b45e01e4413a"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n    \"position\":\"Intern\",\n    \"salary\": 1\n}"
+                }
+            }
+        },
+        {
+            "name": "Request Nonexistent Employee",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/emp/employees/670c2bc649a5b45e01e4413b",
+                    "path": [
+                        "api",
+                        "v1",
+                        "emp",
+                        "employees",
+                        "670c2bc649a5b45e01e4413b"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update Nonexistent Employee",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/emp/employees/670c2bc649a5b45e01e4413b",
+                    "path": [
+                        "api",
+                        "v1",
+                        "emp",
+                        "employees",
+                        "670c2bc649a5b45e01e4413b"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n    \"position\":\"Intern\",\n    \"salary\": 1\n}"
+                }
+            }
+        },
+        {
+            "name": "Delete Jorrel",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/emp/employees?eid=670c2bc649a5b45e01e4413a",
+                    "query": [
+                        {
+                            "key": "eid",
+                            "value": "670c2bc649a5b45e01e4413a"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "api",
+                        "v1",
+                        "emp",
+                        "employees"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Delete Nonexistent Employee",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "https://101329925-comp-3123-assignment1.vercel.app/api/v1/emp/employees?eid=670c2bc649a5b45e01e4413b",
+                    "query": [
+                        {
+                            "key": "eid",
+                            "value": "670c2bc649a5b45e01e4413b"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "api",
+                        "v1",
+                        "emp",
+                        "employees"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "101329925-comp-3123-assignment1",
+                        "vercel",
+                        "app"
+                    ]
+                }
+            }
+        }
+    ]
+}
