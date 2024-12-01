@@ -44,6 +44,28 @@ router.post('/employees', async (req, res) => {
     }
 });
 
+// http://localhost:6130/api/v1/employees/:field/:search GET
+router.get('/employees/:field/:search', async (req, res) => {
+    
+    let field = {_id: req.params.field};
+    let search = {_id: req.params.search};
+    let findEmps;
+
+    try {
+        if (findEmps = await EmpModel.find({}).
+        where(field).equals(search).
+        exec()) {
+            res.status(200).send(findEmp);
+        } else {
+            throw Error("Employees not found.")
+        }
+    }catch(err) {
+        console.log({error: err.message});
+        res.status(400).send({error: err.message});
+    }
+
+})
+
 // http://localhost:6130/api/v1/employees/_id GET
 router.get('/employees/:eid/', async (req, res) => {
     
