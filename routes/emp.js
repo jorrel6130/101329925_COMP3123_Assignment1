@@ -48,11 +48,11 @@ router.post('/employees', async (req, res) => {
 router.get('/employees/:field/:search', async (req, res) => {
     
     let searchField = req.params.field;
-    let search = req.params.search;
+    let search = {searchField: req.params.search};
     let findEmps;
 
     try {
-        if (findEmps = await EmpModel.find(`${searchField}: ${search}`)) {
+        if (findEmps = await EmpModel.find(search)) {
             res.status(200).send(findEmps);
         } else {
             throw Error("Employee is not recorded.")
