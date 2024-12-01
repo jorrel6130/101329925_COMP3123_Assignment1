@@ -6,7 +6,6 @@ const express = require('express');
 const UserModel = require('../models/userSchema');
 const router = express.Router();
 const mongoose = require('mongoose');
-mongoose.connect("mongodb+srv://jorrel6130:u7IoFfOZEgKGRK9h@comp3123assignment1.ckvpn.mongodb.net/?retryWrites=true&w=majority&appName=Comp3123Assignment1");
 
 // http://localhost:6130/api/v1/signup POST
 router.post('/signup', async (req, res) => {
@@ -19,7 +18,7 @@ router.post('/signup', async (req, res) => {
             throw Error("Email is already in use.");
         } else {
             let userBody = {
-                _id: req.body._id || new mongoose.Types.ObjectId,
+                _id: req.body._id || new db.Types.ObjectId,
                 username: req.body.username,
                 email: req.body.email,
                 password: req.body.password
