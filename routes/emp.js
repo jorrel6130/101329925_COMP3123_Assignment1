@@ -53,8 +53,7 @@ router.get('/employees/:field/:search', async (req, res) => {
 
     try {
         if (findEmps = await EmpModel.find({}).
-        where(field).equals(search).
-        exec()) {
+        where(field).equals(search)) {
             res.status(200).send(findEmp);
         } else {
             throw Error("Employees not found.")
