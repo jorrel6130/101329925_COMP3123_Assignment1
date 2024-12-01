@@ -45,13 +45,14 @@ router.post('/employees', async (req, res) => {
 });
 
 // http://localhost:6130/api/v1/employees/:field/:search GET
-router.get('/employees/department/:search', async (req, res) => {
+router.get('/employees/:field/:search', async (req, res) => {
     
+    let searchField = req.params.field;
     let search = req.params.search;
     let findEmps;
 
     try {
-        findEmps = await EmpModel.find({'department': search})
+        findEmps = await EmpModel.find({[searchField]: search})
         res.status(200).send(findEmps);
     }catch(err) {
         console.log({error: err.message});
