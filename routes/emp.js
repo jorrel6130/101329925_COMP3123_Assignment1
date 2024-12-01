@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 
 // http://localhost:6130/api/v1/employees GET
 router.get('/employees', async (req, res) => {
+    console.log("Attempting...")
     let allEmps = await EmpModel.find({});
     res.status(200).send(allEmps);
 });

@@ -6,14 +6,13 @@ const express = require('express');
 const userRouter = require('./routes/user');
 const empRouter = require('./routes/emp');
 const app = express();
-const SERVER_PORT = process.env.port || 6130;
 
 app.use(express.json())
 app.use(express.urlencoded())
 
 app.route("/")
 .get((req, res) => {
-    res.send("<h1>101329925 COMP 3123 Assignment 1</h1>")
+    res.send("Express on Vercel")
 })
 
 // routes/user.js
@@ -36,8 +35,6 @@ app.use((err, req, res, next) => {
     res.status(err.statusCode).send({error: err.message});
 });
 
-// http://localhost:6130
-app.listen(SERVER_PORT, () => {
-    console.log(`Server is running on port http://localhost:${SERVER_PORT}`);
-    console.log({sample_user_login: {"email": "sample@gmail.com", "password": "password123"}});
-});
+app.listen(6130, () => console.log("Server ready on port 6130."));
+
+module.exports = app;

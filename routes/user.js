@@ -18,7 +18,7 @@ router.post('/signup', async (req, res) => {
             throw Error("Email is already in use.");
         } else {
             let userBody = {
-                _id: req.body._id || new db.Types.ObjectId,
+                _id: req.body._id || new mongoose.Types.ObjectId,
                 username: req.body.username,
                 email: req.body.email,
                 password: req.body.password
